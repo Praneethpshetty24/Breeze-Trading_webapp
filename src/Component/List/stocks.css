@@ -1,0 +1,106 @@
+.stocks-container {
+    padding: 20px;
+    position: relative; /* Ensure relative positioning for sidebar */
+  }
+  
+  .back-button {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    position: absolute; /* Positioning the button */
+    top: 20px;
+    left: 10px; /* Adjusted left position */
+  }
+  
+  .back-button:hover {
+    background-color: darkgreen;
+  }
+  
+  .boxes-wrapper {
+    border: 4px solid green; /* Increased border width */
+    padding: 20px;
+    margin-left: 50px; /* Adjusted margin to leave space for back button */
+  }
+  
+  .box-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .box {
+    background-color: green;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    flex: 1;
+    margin: 0 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 180px;
+    width: calc(31% - 10px); /* Adjusted width */
+    box-sizing: border-box;
+  }
+  
+  .invest-button {
+    align-self: flex-end;
+  }
+  
+  .button-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .portfolio-button,
+  .ai-chat-button {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .portfolio-button:hover,
+  .ai-chat-button:hover {
+    background-color: darkgreen;
+  }
+  
+  /* Sidebar Styles */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    right: -300px; /* Initially off-screen */
+    width: 300px;
+    height: 100%;
+    background-color: #f0f0f0;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2); /* Shadow for sidebar */
+    transition: right 0.3s ease-in-out; /* Smooth transition */
+    z-index: 1000; /* Ensure sidebar is above other content */
+  }
+  
+  .sidebar.open {
+    right: 0; /* Slide in when .open class is added */
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: red; /* Close button color */
+    color: white;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  .back-button {
+    /* Other styles */
+    left: -300px; /* Adjust this value to move the button further left */
+  }
+  
