@@ -7,6 +7,12 @@ function Stocks() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isPortfolioOpen, setIsPortfolioOpen] = useState(false);
   const [message, setMessage] = useState('');
+  const [portfolioData, setPortfolioData] = useState({
+    currentAmount: 0,
+    investedAmount: 0,
+    totalReturns: 0,
+    addedStocks: []
+  });
 
   const handleBackClick = () => {
     navigate(-1); // Navigate to the previous page
@@ -14,12 +20,10 @@ function Stocks() {
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
-    setIsPortfolioOpen(false); // Close Portfolio sidebar if open
   };
 
   const togglePortfolio = () => {
     setIsPortfolioOpen(!isPortfolioOpen);
-    setIsSidebarOpen(false); // Close AI Chat sidebar if open
   };
 
   const closeSidebar = () => {
@@ -42,42 +46,80 @@ function Stocks() {
     setMessage('');
   };
 
+  const handleInvestClick = (index) => {
+    // Determine the path based on index
+    switch (index) {
+      case 0:
+        navigate('/invest1');
+        break;
+      case 1:
+        navigate('/invest2');
+        break;
+      case 2:
+        navigate('/invest3');
+        break;
+      case 3:
+        navigate('/invest4');
+        break;
+      case 4:
+        navigate('/invest5');
+        break;
+      case 5:
+        navigate('/invest6');
+        break;
+      default:
+        break;
+    }
+  };
+
   return (
     <div className="stocks-container">
-      <button className="back-button" onClick={handleBackClick}>
-        ← Back
-      </button>
       <div className="boxes-wrapper">
         <div className="box-row">
           <div className="box">
             <div>Box Content</div>
-            <button className="invest-button">Invest</button>
+            <button className="invest-button" onClick={() => handleInvestClick(0)}>
+              Invest
+            </button>
           </div>
           <div className="box">
             <div>Box Content</div>
-            <button className="invest-button">Invest</button>
+            <button className="invest-button" onClick={() => handleInvestClick(1)}>
+              Invest
+            </button>
           </div>
           <div className="box">
             <div>Box Content</div>
-            <button className="invest-button">Invest</button>
+            <button className="invest-button" onClick={() => handleInvestClick(2)}>
+              Invest
+            </button>
           </div>
         </div>
         <div className="box-row">
           <div className="box">
             <div>Box Content</div>
-            <button className="invest-button">Invest</button>
+            <button className="invest-button" onClick={() => handleInvestClick(3)}>
+              Invest
+            </button>
           </div>
           <div className="box">
             <div>Box Content</div>
-            <button className="invest-button">Invest</button>
+            <button className="invest-button" onClick={() => handleInvestClick(4)}>
+              Invest
+            </button>
           </div>
           <div className="box">
             <div>Box Content</div>
-            <button className="invest-button">Invest</button>
+            <button className="invest-button" onClick={() => handleInvestClick(5)}>
+              Invest
+            </button>
           </div>
         </div>
       </div>
       <div className="button-wrapper">
+        <button className="back-button" onClick={handleBackClick}>
+          ← Back
+        </button>
         <button className="portfolio-button" onClick={togglePortfolio}>
           Portfolio
         </button>
@@ -86,17 +128,30 @@ function Stocks() {
         </button>
       </div>
       {/* Portfolio Sidebar */}
-      <div className={`sidebar ${isPortfolioOpen ? 'open' : ''}`}>
+      <div className={`sidebar left-sidebar ${isPortfolioOpen ? 'open' : ''}`}>
         <button className="close-button" onClick={closePortfolio}>
           ✕ {/* Close symbol (close button) */}
         </button>
         <div className="sidebar-content">
           <h3>Portfolio</h3>
-          {/* Add your portfolio content here */}
+          <div className="portfolio-box">
+            <p>Current Amount: <span>{portfolioData.currentAmount}</span></p>
+            <p>Invested Amount: <span>{portfolioData.investedAmount}</span></p>
+            <p>Total Returns: <span>{portfolioData.totalReturns}</span></p>
+          </div>
+          <div className="stocks-list">
+            <h4>My Added Stocks:</h4>
+            {/* Placeholder for added stocks */}
+            {portfolioData.addedStocks.map((stock, index) => (
+              <div key={index} className="stock-item">
+                {stock}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
       {/* AI Chat Sidebar */}
-      <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
+      <div className={`sidebar right-sidebar ${isSidebarOpen ? 'open' : ''}`}>
         <button className="close-button" onClick={closeSidebar}>
           ✕ {/* Close symbol (close button) */}
         </button>

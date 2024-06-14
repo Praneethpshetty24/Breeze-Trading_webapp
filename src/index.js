@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -8,6 +8,12 @@ import SignUp from './Component/Login/SignUp';
 import SignIn from './Component/Login/SignIn';
 import Protected from './Component/Protected/Protected';
 import Home from './Component/Main/Home';
+import Invest1 from './Component/Invest1/Invest1'; // Import Invest1.jsx
+import Invest2 from './Component/Invest1/Invest2'; // Import Invest2.jsx
+import Invest3 from './Component/Invest1/Invest3'; // Import Invest3.jsx
+import Invest4 from './Component/Invest1/Invest4'; // Import Invest4.jsx
+import Invest5 from './Component/Invest1/Invest5'; // Import Invest5.jsx
+import Invest6 from './Component/Invest1/Invest6'; // Import Invest6.jsx
 import Stocks from './Component/List/Stocks'; // Corrected import path
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -20,8 +26,15 @@ root.render(
           <Route path="signin" element={<SignIn />} />
         </Route>
         <Route path="/home" element={<Home />} />
-        <Route path="/protected" element={<App />} />
-        <Route path="/stocks" element={<Stocks />} /> {/* Corrected import path */}
+        <Route path="/protected" element={<Protected />} />
+        <Route path="/stocks" element={<Stocks />} />
+        {/* Routes for Investment pages */}
+        <Route path="/invest1" element={<Invest1 />} />
+        <Route path="/invest2" element={<Invest2 />} />
+        <Route path="/invest3" element={<Invest3 />} />
+        <Route path="/invest4" element={<Invest4 />} />
+        <Route path="/invest5" element={<Invest5 />} />
+        <Route path="/invest6" element={<Invest6 />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
