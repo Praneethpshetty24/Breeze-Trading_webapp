@@ -168,3 +168,56 @@
     background-color: darkgreen;
   }
   
+  /* Watchlist box styles */
+  .watchlist-box {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    width: 300px;
+    background-color: #f0f0f0;
+    border: 2px solid green;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+  
+  .watchlist-header {
+    background-color: green;
+    color: white;
+    padding: 10px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+  
+  .watchlist-items {
+    padding: 10px;
+  }
+  
+  .watchlist-item {
+    background-color: white;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .watchlist-item:last-child {
+    border-bottom: none;
+  }
+  
+  /* Stock graph placeholder styles */
+  .stock-graph-section {
+    /* Styling for stock graph section */
+  }
+  
+  .stock-graph-section > div {
+    border: 2px solid green;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  /* Another placeholder at the end */
+  .stock-graph-display-placeholder {
+    margin-top: 20px;
+    border: 2px solid blue;
+    padding: 20px;
+  }
+  

@@ -13,6 +13,8 @@ function Invest1() {
   const [showChatBox, setShowChatBox] = useState(false);
   const [message, setMessage] = useState('');
   const [chatMessages, setChatMessages] = useState([]);
+  const [showWatchlist, setShowWatchlist] = useState(false); // State to manage watchlist visibility
+  const [watchlist, setWatchlist] = useState([]);
 
   useEffect(() => {
     // Example API fetch for company data
@@ -46,6 +48,16 @@ function Invest1() {
     setMessage('');
   };
 
+  const addToWatchlist = () => {
+    // Assuming you have some identifier like companyData.nseSymbol to uniquely identify the stock
+    if (!watchlist.includes(companyData.nseSymbol)) {
+      setWatchlist([...watchlist, companyData.nseSymbol]);
+    }
+    
+    // Toggle watchlist visibility
+    setShowWatchlist(!showWatchlist);
+  };
+
   return (
     <div className="invest1-container">
       <div className="header">
@@ -55,10 +67,18 @@ function Invest1() {
         </div>
         <div className="right-section">
           <button className="like-button">Like</button>
-          <button className="watchlist-button">Add to Watchlist</button>
+          <button className="watchlist-button" onClick={addToWatchlist}>
+            Add to Watchlist
+          </button>
           <button className="ai-chat-button" onClick={toggleChatBox}>
             AI Chat
           </button>
+        </div>
+      </div>
+      <div className="stock-graph-section">
+        {/* Add your stock graph display component or elements here */}
+        <div style={{ border: '2px solid green', padding: '20px', marginBottom: '20px' }}>
+          Stock Graph Display Placeholder
         </div>
       </div>
       <div className="green-box"></div> {/* Green border box */}
@@ -134,6 +154,19 @@ function Invest1() {
             <button className="send-button" onClick={sendMessage}>
               Send
             </button>
+          </div>
+        </div>
+      )}
+
+      {showWatchlist && (
+        <div className="watchlist-box">
+          <div className="watchlist-header">Watchlist</div>
+          <div className="watchlist-items">
+            {watchlist.map((item, index) => (
+              <div key={index} className="watchlist-item">
+                {item}
+              </div>
+            ))}
           </div>
         </div>
       )}
