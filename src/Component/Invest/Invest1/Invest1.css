@@ -1,0 +1,90 @@
+.invest1-container {
+    padding: 20px;
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .photo-box {
+    width: 50px;
+    height: 50px;
+    background-color: lightgray;
+    border: 2px solid green;
+    margin-right: 20px;
+  }
+  
+  .stock-name {
+    font-size: 24px;
+    margin-right: 20px;
+  }
+  
+  .like-button, .watchlist-button {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
+  }
+  
+  .like-button:hover, .watchlist-button:hover {
+    background-color: darkgreen;
+  }
+  
+  .graph-section {
+    margin-bottom: 20px;
+  }
+  
+  .graph-button {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
+  }
+  
+  .graph-button:hover {
+    background-color: darkgreen;
+  }
+  
+  .graph-placeholder {
+    background-color: lightgray;
+    height: 300px;
+    border: 2px solid green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .fundamentals-section {
+    border: 2px solid green;
+    padding: 20px;
+  }
+  
+  .fundamentals-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  
+  .fundamental-item {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    padding: 10px;
+    border: 1px solid green;
+  }
+  
+  .data-box {
+    background-color: lightgray;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  
