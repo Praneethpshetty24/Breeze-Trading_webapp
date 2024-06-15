@@ -77,7 +77,7 @@ function Invest1() {
       </div>
       <div className="stock-graph-section">
         {/* Add your stock graph display component or elements here */}
-        <div style={{ border: '2px solid green', padding: '20px', marginBottom: '20px' }}>
+        <div style={{ border: '2px solid green', padding: '10px', marginBottom: '10px' }}>
           Stock Graph Display Placeholder
         </div>
       </div>
@@ -127,6 +127,18 @@ function Invest1() {
               NSE Symbol: <span className="data-box">{companyData.nseSymbol}</span>
             </div>
             {/* Add more fields as needed */}
+          </div>
+        </div>
+        {/* New Stock Graph Display Placeholder */}
+        <div className="new-stock-graph-display-placeholder">
+          <h2>Stock Graph Display Placeholder (New)</h2>
+          <div className="new-stock-graph-data">
+            <div className="today-high">
+              Today's High: <span className="data-box">N/A</span>
+            </div>
+            <div className="today-low">
+              Today's Low: <span className="data-box">N/A</span>
+            </div>
           </div>
         </div>
       </div>
