@@ -17,6 +17,8 @@ function Invest1() {
   const [showWatchlist, setShowWatchlist] = useState(false); // State to manage watchlist visibility
   const [watchlist, setWatchlist] = useState([]);
   const [liked, setLiked] = useState(false); // State to track whether the heart is liked
+  const [watchlistAdded, setWatchlistAdded] = useState(false); // State to track if the watchlist button is clicked
+  const [aiChatActive, setAiChatActive] = useState(false); // State to track AI Chat button status
 
   useEffect(() => {
     // Example API fetch for company data
@@ -28,6 +30,7 @@ function Invest1() {
 
   const toggleChatBox = () => {
     setShowChatBox(!showChatBox);
+    setAiChatActive(!aiChatActive); // Toggle AI Chat button status
     // Remove the line setShowWatchlist(false); to allow both to be open
   };
 
@@ -49,12 +52,14 @@ function Invest1() {
   };
 
   const toggleWatchlist = () => {
+    setWatchlistAdded(!watchlistAdded); // Toggle watchlist state
     setShowWatchlist(!showWatchlist);
     // Remove the line setShowChatBox(false); to allow both to be open
   };
 
   const addToWatchlist = (item) => {
     setWatchlist([...watchlist, item]);
+    setWatchlistAdded(true); // Set state to true when item is added to watchlist
   };
 
   const handleLike = () => {
@@ -71,15 +76,15 @@ function Invest1() {
         </div>
         <div className="right-section">
           <button className="ai-chat-button" onClick={toggleChatBox}>
-            AI Chat 🤖
+            {aiChatActive ? '🤖📢 AI Chat ' : 'AI Chat 🤖'}
           </button>
           <button className="watchlist-button" onClick={toggleWatchlist}>
-            Add to Watchlist 📋
+            {watchlistAdded ? ' Added to Watchlist  📋' : '✅ Add to Watchlist '}
           </button>
           <button className="like-button" onClick={handleLike}>
             {liked ? '❤️' : '🤍'}
           </button>
-        </div>
+        </div>    
       </div>
 
       <div className="stock-graph-display-placeholder">
@@ -198,7 +203,7 @@ function Invest1() {
 
       <div className="analyse-buy-buttons">
         <button className="analyse-button">Analyse</button>
-        <button className="buy-now-button" >Buy Now</button>
+        <button className="buy-now-button" onClick={() => addToWatchlist('Stock Name')}>Buy Now</button>
       </div>
     </div>
   );
