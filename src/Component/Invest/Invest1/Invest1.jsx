@@ -26,6 +26,7 @@ function Invest1() {
 
   const toggleChatBox = () => {
     setShowChatBox(!showChatBox);
+    // Remove the line setShowWatchlist(false); to allow both to be open
   };
 
   const handleMessageChange = (e) => {
@@ -38,24 +39,24 @@ function Invest1() {
     const newMessage = {
       text: message,
       sender: 'user', // Indicates message sent by user
-      timestamp: new Date().toISOString() // Example timestamp
+      timestamp: new Date().toLocaleTimeString(),
     };
 
-    // Update chatMessages state to include new message
     setChatMessages([...chatMessages, newMessage]);
-
-    // Clear message input after sending
     setMessage('');
   };
 
-  const addToWatchlist = () => {
-    // Assuming you have some identifier like companyData.nseSymbol to uniquely identify the stock
-    if (!watchlist.includes(companyData.nseSymbol)) {
-      setWatchlist([...watchlist, companyData.nseSymbol]);
-    }
-    
-    // Toggle watchlist visibility
+  const toggleWatchlist = () => {
     setShowWatchlist(!showWatchlist);
+    // Remove the line setShowChatBox(false); to allow both to be open
+  };
+
+  const addToWatchlist = (item) => {
+    setWatchlist([...watchlist, item]);
+  };
+
+  const handleLike = () => {
+    // Handle like functionality
   };
 
   return (
@@ -63,105 +64,114 @@ function Invest1() {
       <div className="header">
         <div className="left-section">
           <div className="photo-box"></div>
-          <h1 className="stock-name">vhfvb</h1>
+          <div className="stock-name">Stock Name</div>
         </div>
         <div className="right-section">
-          <button className="like-button">Like</button>
-          <button className="watchlist-button" onClick={addToWatchlist}>
-            Add to Watchlist
-          </button>
           <button className="ai-chat-button" onClick={toggleChatBox}>
             AI Chat
           </button>
+          <button className="watchlist-button" onClick={toggleWatchlist}>
+            Add to Watchlist
+          </button>
+          <button className="like-button" onClick={handleLike}>
+            Like
+          </button>
         </div>
       </div>
-      <div className="stock-graph-section">
-        {/* Add your stock graph display component or elements here */}
-        <div style={{ border: '2px solid green', padding: '10px', marginBottom: '10px' }}>
-          Stock Graph Display Placeholder
-        </div>
+
+      <div className="stock-graph-display-placeholder">
+        <h2>Stock Graph Display Placeholder</h2>
       </div>
-      <div className="green-box"></div> {/* Green border box */}
-      <div className="gap-after-green-box"></div> {/* Space after green box */}
+
       <div className="content-wrapper">
-        <div className="fundamentals-section section">
+        <div className="section fundamentals-section">
           <h2>Fundamentals</h2>
           <div className="fundamentals-grid">
             <div className="fundamental-item">
-              Mkt Cap: <span className="data-box">N/A</span>
+              <span>Mkt Cap:</span>
+              <span className="data-box">N/A</span>
             </div>
             <div className="fundamental-item">
-              PE Ratio: <span className="data-box">N/A</span>
+              <span>PE Ratio:</span>
+              <span className="data-box">N/A</span>
             </div>
             <div className="fundamental-item">
-              PB Ratio: <span className="data-box">N/A</span>
+              <span>PB Ratio:</span>
+              <span className="data-box">N/A</span>
             </div>
             <div className="fundamental-item">
-              Industry PE: <span className="data-box">N/A</span>
+              <span>Industry PE:</span>
+              <span className="data-box">N/A</span>
             </div>
             <div className="fundamental-item">
-              Debt to Equity: <span className="data-box">N/A</span>
+              <span>Debt to Equity:</span>
+              <span className="data-box">N/A</span>
             </div>
             <div className="fundamental-item">
-              ROE: <span className="data-box">N/A</span>
+              <span>ROE:</span>
+              <span className="data-box">N/A</span>
             </div>
             <div className="fundamental-item">
-              Div Yield: <span className="data-box">N/A</span>
+              <span>Div Yield:</span>
+              <span className="data-box">N/A</span>
             </div>
           </div>
         </div>
-        <div className="about-company-section section">
+
+        <div className="section about-company-section">
           <h2>About Company</h2>
           <div className="about-company-grid">
             <div className="company-item">
-              Parent Organization:{' '}
+              <span>Parent Organization:</span>
               <span className="data-box">{companyData.parentOrganization}</span>
             </div>
             <div className="company-item">
-              CEO: <span className="data-box">{companyData.ceo}</span>
+              <span>CEO:</span>
+              <span className="data-box">{companyData.ceo}</span>
             </div>
             <div className="company-item">
-              Founded in: <span className="data-box">{companyData.founded}</span>
+              <span>Founded in:</span>
+              <span className="data-box">{companyData.founded}</span>
             </div>
             <div className="company-item">
-              NSE Symbol: <span className="data-box">{companyData.nseSymbol}</span>
-            </div>
-            {/* Add more fields as needed */}
-          </div>
-        </div>
-        {/* New Stock Graph Display Placeholder */}
-        <div className="new-stock-graph-display-placeholder">
-          <h2>Stock Graph Display Placeholder (New)</h2>
-          <div className="new-stock-graph-data">
-            <div className="today-high">
-              Today's High: <span className="data-box">N/A</span>
-            </div>
-            <div className="today-low">
-              Today's Low: <span className="data-box">N/A</span>
+              <span>NSE Symbol:</span>
+              <span className="data-box">{companyData.nseSymbol}</span>
             </div>
           </div>
         </div>
       </div>
 
+      <div className="section new-stock-graph-display-placeholder">
+        <h2>Stock Graph Display Placeholder (New)</h2>
+        <div className="new-stock-graph-data">
+          <div className="graph-item">
+            <span>Today's High:</span>
+            <span className="data-box">N/A</span>
+          </div>
+          <div className="graph-item">
+            <span>Today's Low:</span>
+            <span className="data-box">N/A</span>
+          </div>
+        </div>
+      </div>
+
       {showChatBox && (
-        <div className="chat-box">
+        <div className={`chat-box ${showChatBox ? 'visible' : ''}`}>
           <div className="chat-header">AI Chat</div>
           <div className="chat-messages">
             {chatMessages.map((msg, index) => (
-              <div
-                key={index}
-                className={`chat-message ${msg.sender === 'user' ? 'user' : 'bot'}`}
-              >
+              <div key={index} className={`chat-message ${msg.sender}`}>
                 {msg.text}
+                <div className="chat-timestamp">{msg.timestamp}</div>
               </div>
             ))}
           </div>
           <div className="chat-input">
             <input
               type="text"
-              placeholder="Type your message..."
               value={message}
               onChange={handleMessageChange}
+              placeholder="Type a message..."
             />
             <button className="send-button" onClick={sendMessage}>
               Send
@@ -171,7 +181,7 @@ function Invest1() {
       )}
 
       {showWatchlist && (
-        <div className="watchlist-box">
+        <div className={`watchlist-box ${showWatchlist ? 'visible' : ''}`}>
           <div className="watchlist-header">Watchlist</div>
           <div className="watchlist-items">
             {watchlist.map((item, index) => (
@@ -182,6 +192,11 @@ function Invest1() {
           </div>
         </div>
       )}
+
+      <div className="analyse-buy-buttons">
+        <button className="analyse-button">Analyse</button>
+        <button className="buy-now-button">Buy Now</button>
+      </div>
     </div>
   );
 }

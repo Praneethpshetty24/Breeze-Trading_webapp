@@ -125,11 +125,13 @@
   cursor: pointer;
   font-size: 16px;
   text-align: center; /* Center align text */
+  border-radius: 50px; /* Rounded corners */
 }
 
 .ai-chat-button:hover {
   background-color: darkgreen;
 }
+
 
 /* Additional styles for sidebar content */
 .sidebar-content {
