@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import './Invest1.css';
 
 function Invest1() {
@@ -15,6 +16,7 @@ function Invest1() {
   const [chatMessages, setChatMessages] = useState([]);
   const [showWatchlist, setShowWatchlist] = useState(false); // State to manage watchlist visibility
   const [watchlist, setWatchlist] = useState([]);
+  const [liked, setLiked] = useState(false); // State to track whether the heart is liked
 
   useEffect(() => {
     // Example API fetch for company data
@@ -56,7 +58,8 @@ function Invest1() {
   };
 
   const handleLike = () => {
-    // Handle like functionality
+    setLiked(!liked); // Toggle liked state
+    // You can add additional logic here if needed
   };
 
   return (
@@ -68,13 +71,13 @@ function Invest1() {
         </div>
         <div className="right-section">
           <button className="ai-chat-button" onClick={toggleChatBox}>
-            AI Chat
+            AI Chat 🤖
           </button>
           <button className="watchlist-button" onClick={toggleWatchlist}>
-            Add to Watchlist
+            Add to Watchlist 📋
           </button>
           <button className="like-button" onClick={handleLike}>
-            Like
+            {liked ? '❤️' : '🤍'}
           </button>
         </div>
       </div>
@@ -195,7 +198,7 @@ function Invest1() {
 
       <div className="analyse-buy-buttons">
         <button className="analyse-button">Analyse</button>
-        <button className="buy-now-button">Buy Now</button>
+        <button className="buy-now-button" >Buy Now</button>
       </div>
     </div>
   );

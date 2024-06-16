@@ -15,6 +15,7 @@ import Invest4 from './Component/Invest/Invest4/Invest4'; // Import Invest4.jsx
 import Invest5 from './Component/Invest/Invest5/Invest5'; // Import Invest5.jsx
 import Invest6 from './Component/Invest/Invest6/Invest6'; // Import Invest6.jsx
 import Stocks from './Component/List/Stocks'; // Corrected import path
+import Pay1 from './Component/Invest/Invest1/Pay1.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -35,6 +36,7 @@ root.render(
         <Route path="/invest4" element={<Invest4 />} />
         <Route path="/invest5" element={<Invest5 />} />
         <Route path="/invest6" element={<Invest6 />} />
+        <Route path="/invest1" element={<Pay1 />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
