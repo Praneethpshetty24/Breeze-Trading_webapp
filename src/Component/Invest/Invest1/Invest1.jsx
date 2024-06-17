@@ -1,27 +1,27 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './Invest1.css';
 
 function Invest1() {
+  const navigate = useNavigate();
+
   const [companyData, setCompanyData] = useState({
     parentOrganization: 'N/A',
     ceo: 'N/A',
     founded: 'N/A',
     nseSymbol: 'N/A',
-    // Add more fields as needed
   });
 
   const [showChatBox, setShowChatBox] = useState(false);
   const [message, setMessage] = useState('');
   const [chatMessages, setChatMessages] = useState([]);
-  const [showWatchlist, setShowWatchlist] = useState(false); // State to manage watchlist visibility
+  const [showWatchlist, setShowWatchlist] = useState(false);
   const [watchlist, setWatchlist] = useState([]);
-  const [liked, setLiked] = useState(false); // State to track whether the heart is liked
-  const [watchlistAdded, setWatchlistAdded] = useState(false); // State to track if the watchlist button is clicked
-  const [aiChatActive, setAiChatActive] = useState(false); // State to track AI Chat button status
+  const [liked, setLiked] = useState(false);
+  const [watchlistAdded, setWatchlistAdded] = useState(false);
+  const [aiChatActive, setAiChatActive] = useState(false);
 
   useEffect(() => {
-    // Example API fetch for company data
     fetch('https://api.example.com/company')
       .then(response => response.json())
       .then(data => setCompanyData(data))
@@ -30,8 +30,7 @@ function Invest1() {
 
   const toggleChatBox = () => {
     setShowChatBox(!showChatBox);
-    setAiChatActive(!aiChatActive); // Toggle AI Chat button status
-    // Remove the line setShowWatchlist(false); to allow both to be open
+    setAiChatActive(!aiChatActive);
   };
 
   const handleMessageChange = (e) => {
@@ -39,11 +38,11 @@ function Invest1() {
   };
 
   const sendMessage = () => {
-    if (message.trim() === '') return; // Prevent sending empty messages
+    if (message.trim() === '') return;
 
     const newMessage = {
       text: message,
-      sender: 'user', // Indicates message sent by user
+      sender: 'user',
       timestamp: new Date().toLocaleTimeString(),
     };
 
@@ -52,19 +51,17 @@ function Invest1() {
   };
 
   const toggleWatchlist = () => {
-    setWatchlistAdded(!watchlistAdded); // Toggle watchlist state
+    setWatchlistAdded(!watchlistAdded);
     setShowWatchlist(!showWatchlist);
-    // Remove the line setShowChatBox(false); to allow both to be open
   };
 
   const addToWatchlist = (item) => {
     setWatchlist([...watchlist, item]);
-    setWatchlistAdded(true); // Set state to true when item is added to watchlist
+    setWatchlistAdded(true);
   };
 
   const handleLike = () => {
-    setLiked(!liked); // Toggle liked state
-    // You can add additional logic here if needed
+    setLiked(!liked);
   };
 
   return (
@@ -202,8 +199,9 @@ function Invest1() {
       )}
 
       <div className="analyse-buy-buttons">
-        <button className="analyse-button">Analyse</button>
-        <button className="buy-now-button" onClick={() => addToWatchlist('Stock Name')}>Buy Now</button>
+        <button className="analyse-button" onClick={() => navigate('/analyse')}>Analyse</button>
+        <button className="back-button" onClick={() => navigate('/stocks')}>Back</button>
+        <button className="buy-now-button" onClick={() => navigate('/pay1')}>Buy Now</button>
       </div>
     </div>
   );
