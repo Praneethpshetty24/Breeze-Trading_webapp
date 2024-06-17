@@ -76,7 +76,7 @@ function Invest1() {
             {aiChatActive ? '🤖📢 AI Chat ' : 'AI Chat 🤖'}
           </button>
           <button className="watchlist-button" onClick={toggleWatchlist}>
-            {watchlistAdded ? ' Added to Watchlist  📋' : '✅ Add to Watchlist '}
+            {watchlistAdded ? ' ✅ Added to Watchlist  ' : ' Add to Watchlist 📋'}
           </button>
           <button className="like-button" onClick={handleLike}>
             {liked ? '❤️' : '🤍'}

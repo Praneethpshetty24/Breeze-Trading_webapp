@@ -1,0 +1,143 @@
+.pay1-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .details-box {
+    background-color: #fff;
+    border: 2px solid green;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .details-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .detail-item {
+    margin-bottom: 10px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+  }
+  
+  .detail-item span {
+    width: 150px; /* Adjust width of labels as needed */
+    font-weight: bold;
+  }
+  
+  .quantity-selector {
+    display: flex;
+    align-items: center;
+  }
+  
+  .quantity-selector button {
+    padding: 5px 10px;
+    font-size: 16px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .quantity-selector input {
+    width: 60px;
+    text-align: center;
+    font-size: 16px;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 0 10px;
+  }
+  
+  .exchange-selector {
+    margin-top: 10px;
+  }
+  
+  .exchange-selector select {
+    padding: 5px 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .action-buttons {
+    display: flex;
+    align-items: center;
+  }
+  
+  .buy-button,
+  .pay-now-button,
+  .close-button {
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  
+  .buy-button {
+    background-color: green;
+    color: white;
+  }
+  
+  .pay-now-button {
+    background-color: green;
+    color: white;
+  }
+  
+  .close-button {
+    background-color: red;
+    color: white;
+  }
+  
+  .confirmation-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+  
+  .confirmation-modal {
+    background-color: #fff;
+    border: 2px solid green;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    width: 500px;
+    height: 500px;
+    overflow-y: auto;
+    position: relative;
+    z-index: 1000;
+  }
+  
+  .confirmation-container {
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0 auto;
+    overflow: auto;
+  }
+  
+  .confirmation-detail {
+    margin: 10px 0;
+    font-size: 18px;
+  }
+  

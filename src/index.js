@@ -16,7 +16,7 @@ import Invest5 from './Component/Invest/Invest5/Invest5';
 import Invest6 from './Component/Invest/Invest6/Invest6';
 import Stocks from './Component/List/Stocks';
 import Pay1 from './Component/Invest/Invest1/Pay/Pay1';
-import Analyse from './Component/Invest/Invest1/Analyse/Analyse';
+import Analyse from './Component/Invest/Invest1/Analyse/Analyse1';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
