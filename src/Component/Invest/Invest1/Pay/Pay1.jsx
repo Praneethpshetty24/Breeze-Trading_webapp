@@ -53,6 +53,9 @@ function Pay1() {
       setVerified(true);
     } else {
       alert('Invalid or expired verification code');
+      setVerificationCode(null);
+      setUserInput('');
+      setTimer(30);
     }
   };
 
@@ -73,18 +76,18 @@ function Pay1() {
     <div className="pay1-container">
       <h1>Purchase Details</h1>
       <div className="details-box">
-        <div className="exchange-selector-top">
+        <div className="exchange-selector">
           <span>Exchange:</span>
           <select id="exchange" value={exchange} onChange={handleExchangeChange}>
             <option value="NSE">NSE</option>
             <option value="BSE">BSE</option>
           </select>
         </div>
-        <hr className="green-line" />
         <div className="details-container">
           <div className="detail-item">
             <span>Stock Name:</span> {stockName}
           </div>
+          <div className="vertical-line"></div>
           <div className="detail-item">
             <span>Quantity:</span>
             <div className="quantity-selector">
@@ -94,21 +97,24 @@ function Pay1() {
             </div>
           </div>
         </div>
-        <div className="action-buttons">
-          {verificationCode && !verified && (
-            <div className="verification-section">
-              <p>Enter the verification code sent to you:</p>
-              <input type="text" value={userInput} onChange={handleInputChange} />
-              <button onClick={verifyCode}>Verify</button>
-              <p className="timer">Code expires in: {timer} seconds</p>
-            </div>
-          )}
-          {!verificationCode && !verified && (
-            <button onClick={generateVerificationCode}>Verify Sell</button>
-          )}
-          {verified && (
-            <button className="buy-button" onClick={handleBuy}>Buy</button>
-          )}
+        <div className="action-section">
+          <div className="action-buttons">
+            {verificationCode && !verified && (
+              <div className="verification-section">
+                <hr className="horizontal-line" />
+                <p>Enter the verification code sent to you:</p>
+                <input type="text" value={userInput} onChange={handleInputChange} />
+                <button onClick={verifyCode}>Verify</button>
+                <p className="timer">Code expires in: {timer} seconds</p>
+              </div>
+            )}
+            {!verificationCode && !verified && (
+              <button onClick={generateVerificationCode}>Verify Sell</button>
+            )}
+            {verified && (
+              <button className="buy-button" onClick={handleBuy}>Buy</button>
+            )}
+          </div>
         </div>
       </div>
 
@@ -127,7 +133,7 @@ function Pay1() {
                 <span>Exchange:</span> {exchange}
               </div>
               <button className="close-button" onClick={handleCloseConfirmation}>
-                Close &#x274C; {/* Close emoji */}
+                x
               </button>
               <button className="pay-now-button" onClick={handlePayNow}>Pay Now</button>
             </div>
