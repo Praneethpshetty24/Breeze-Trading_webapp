@@ -1,7 +1,7 @@
 /* General styles */
 .invest1-container {
   max-width: 600px;
-  margin: 340px auto 10px; /* Adjusted margin-top to bring content down */
+  margin: 660px auto 10px; /* Adjusted margin-top to bring content down */
   padding: 10px;
   position: relative;
   overflow: hidden;
@@ -70,31 +70,62 @@
   flex-direction: column;
 }
 
-.fundamentals-section,
-.about-company-section,
-.stock-graph-section,
-.stock-graph-display-placeholder {
+.current-price-section,
+.fundamentals-and-company-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   border: 2px solid green;
   padding: 10px;
   margin-bottom: 10px;
-  flex: 1;
+}
+
+.current-price-section h2,
+.fundamentals-and-company-section h2 {
+  font-size: 20px;
+  font-weight: bold;
+  color: green;
+  margin-bottom: 8px;
+}
+
+.current-price-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: lightgray;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.current-price-value {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.fundamentals-section,
+.about-company-section {
   display: flex;
   flex-direction: column;
+  gap: 10px;
+}
+
+.fundamentals-section h2,
+.about-company-section h2 {
+  font-size: 20px;
+  font-weight: bold;
+  color: green;
+  margin-bottom: 8px;
 }
 
 .fundamentals-grid,
-.about-company-grid,
-.stock-graph-data,
-.stock-graph-display-placeholder .stock-graph-data {
+.about-company-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 6px;
-  width: 100%;
 }
 
 .fundamental-item,
-.company-item,
-.graph-item {
+.company-item {
   display: flex;
   justify-content: space-between;
   background-color: white;
@@ -234,7 +265,6 @@
 }
 
 /* Stock graph placeholder styles */
-.stock-graph-section,
 .stock-graph-display-placeholder {
   border: 2px solid green;
   padding: 100px;
@@ -246,31 +276,6 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 6px;
   width: 100%;
-}
-
-.stock-graph-display-placeholder .stock-graph-data {
-  margin-top: 10px;
-}
-
-/* New Stock Graph Display Placeholder */
-.new-stock-graph-display-placeholder {
-  border: 2px solid green;
-  padding: 10px;
-  margin-top: 10px;
-}
-
-.new-stock-graph-data {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 6px;
-  width: 100%;
-}
-
-.today-high,
-.today-low {
-  background-color: white;
-  padding: 6px;
-  border: 1px solid green;
 }
 
 /* Analyse and Buy Now buttons */
@@ -309,4 +314,27 @@
   .ai-chat-button {
     margin-bottom: 10px;
   }
+}
+
+
+.new-stock-graph-display-placeholder {
+  border: 2px solid green;
+  padding: 10px;
+  margin-top: 10px;
+ 
+}
+
+.new-stock-graph-data {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+  width: 100%;
+}
+
+.today-high,
+.today-low {
+  background-color: white;
+  padding: 6px;
+  border: 1px solid green;
+  color: green;
 }
