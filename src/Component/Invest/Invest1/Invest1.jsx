@@ -24,10 +24,10 @@ function Invest1() {
 
   // Chart.js related states and variables
   const [stockChart, setStockChart] = useState(null);
-  const [currentPrice, setCurrentPrice] = useState(50);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const initialPrice = 50; // Starting stock price
+  const [currentPrice, setCurrentPrice] = useState(initialPrice);
   const maxDataPoints = 50;
-  const updateInterval = 2000; // Initial update interval in milliseconds
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   // State for holding quantity
   const [holdingQuantity, setHoldingQuantity] = useState(0);
@@ -82,23 +82,48 @@ function Invest1() {
 
   // Function to update the chart with new data
   const updateChart = () => {
-    setCurrentPrice(prevPrice => prevPrice + getRandomStockPriceChange());
-    
-    if (currentIndex >= maxDataPoints) {
-      stockChart.data.datasets[0].data.shift();
-      stockChart.data.labels.shift();
-    }
+    setCurrentPrice(prevPrice => {
+      const newPrice = prevPrice + getRandomStockPriceChange();
+      
+      if (currentIndex >= maxDataPoints) {
+        stockChart.data.datasets[0].data.shift();
+        stockChart.data.labels.shift();
+      }
 
-    stockChart.data.datasets[0].data.push(currentPrice);
-    stockChart.data.labels.push('');
+      stockChart.data.datasets[0].data.push(newPrice);
+      stockChart.data.labels.push('');
 
-    stockChart.update();
-    setCurrentIndex(prevIndex => prevIndex + 1);
+      stockChart.update();
+      setCurrentIndex(prevIndex => prevIndex + 1);
+
+      return newPrice;
+    });
   };
 
-  // Start updating the chart at specified intervals
+  // Function to gradually decrease the update interval over 30 minutes
+  const decreaseInterval = (initialInterval) => {
+    let interval = initialInterval;
+    const intervalId = setInterval(() => {
+      clearInterval(intervalId);
+
+      if (interval < 60000) {
+        interval += 1000; // Increase the interval by 1000 milliseconds each time
+        setInterval(updateChart, interval);
+        setTimeout(() => decreaseInterval(interval), 60000); // Call decreaseInterval again after 1 minute
+      } else {
+        clearInterval(intervalId); // Stop updating after the interval reaches 1 minute
+        console.log('Chart update stopped after 30 minutes.');
+      }
+    }, interval);
+  };
+
+  // Start updating the chart at the initial interval of 2000 milliseconds (2 seconds)
   useEffect(() => {
-    const intervalId = setInterval(updateChart, updateInterval);
+    const initialInterval = 2000;
+    const intervalId = setInterval(updateChart, initialInterval);
+
+    // Start decreasing the interval after 30 minutes
+    setTimeout(() => decreaseInterval(initialInterval), 1800000); // 1800000 milliseconds = 1800 seconds = 30 minutes
 
     // Clear interval on component unmount
     return () => clearInterval(intervalId);
@@ -187,8 +212,6 @@ function Invest1() {
           </div>
         </div>
         </div>
-
-        
 
         <div className="section new-stock-graph-display-placeholder">
           <h2>Stock Graph Display Placeholder (New)</h2>
