@@ -1,7 +1,9 @@
+/* Ensure this CSS is included in your Invest1.css file */
+
 /* General styles */
 .invest1-container {
   max-width: 600px;
-  margin: 700px auto 10px; /* Adjusted margin-top to bring content down */
+  margin: 650px auto 10px; /* Adjusted margin-top to bring content down */
   padding: 10px;
   position: relative;
   overflow: hidden;
@@ -68,10 +70,12 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  align-items: center; /* Center items horizontally */
 }
 
 .current-price-section,
-.fundamentals-and-company-section {
+.fundamentals-section,
+.about-company-section {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -81,7 +85,8 @@
 }
 
 .current-price-section h2,
-.fundamentals-and-company-section h2 {
+.fundamentals-section h2,
+.about-company-section h2 {
   font-size: 20px;
   font-weight: bold;
   color: green;
@@ -104,17 +109,8 @@
 
 .fundamentals-section,
 .about-company-section {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.fundamentals-section h2,
-.about-company-section h2 {
-  font-size: 20px;
-  font-weight: bold;
-  color: green;
-  margin-bottom: 8px;
+  flex: 1; /* Take equal space */
+  margin-right: 10px; /* Add some margin between the sections */
 }
 
 .fundamentals-grid,
@@ -137,6 +133,30 @@
   background-color: lightgray;
   padding: 3px 6px;
   border-radius: 4px;
+}
+
+/* Centered buttons */
+.analyse-buy-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.analyse-button,
+.buy-now-button {
+  background-color: green;
+  color: white;
+  border: 2px solid green;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.analyse-button:hover,
+.buy-now-button:hover {
+  background-color: darkgreen;
 }
 
 /* Chat box styles */
@@ -267,66 +287,19 @@
 /* Stock graph placeholder styles */
 .stock-graph-display-placeholder {
   border: 2px solid green;
-  padding: 100px;
-  margin-bottom: 10px;
+  padding: 10px;
+  margin-top: 10px;
 }
-
-.stock-graph-data {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 6px;
-  width: 100%;
-}
-
-/* Analyse and Buy Now buttons */
-.analyse-buy-buttons {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.analyse-button,
-.buy-now-button {
-  background-color: green;
-  color: white;
-  border: 2px solid green;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 16px;
-  border-radius: 4px;
-  margin-right: 10px;
-}
-
-.analyse-button:hover,
-.buy-now-button:hover {
-  background-color: darkgreen;
-}
-
-/* Adjustments for small screens */
-@media screen and (max-width: 600px) {
-  .right-section {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .like-button,
-  .watchlist-button,
-  .ai-chat-button {
-    margin-bottom: 10px;
-  }
-}
-
 
 .new-stock-graph-display-placeholder {
   border: 2px solid green;
   padding: 10px;
   margin-top: 10px;
- 
 }
 
 .new-stock-graph-data {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-direction: column; /* Change from grid to column */
   gap: 6px;
   width: 100%;
 }

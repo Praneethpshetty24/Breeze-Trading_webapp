@@ -240,7 +240,7 @@ function Invest1() {
           </div>
         </div>
 
-        <div className="fundamentals-and-company-section">
+        <div className="section fundamentals-and-company-section">
           <div className="fundamentals-section">
             <h2>Fundamentals</h2>
             <div className="fundamentals-grid">
@@ -261,8 +261,7 @@ function Invest1() {
                 <span className="data-box">N/A</span>
               </div>
               <div className="fundamental-item">
-               
-              <span>ROE:</span>
+                <span>ROE:</span>
                 <span className="data-box">N/A</span>
               </div>
               <div className="fundamental-item">
