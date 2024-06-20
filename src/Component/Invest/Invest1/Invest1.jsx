@@ -32,6 +32,10 @@ function Invest1() {
   // State for holding quantity
   const [holdingQuantity, setHoldingQuantity] = useState(0);
 
+  // State for today's high and low prices
+  const [todayHigh, setTodayHigh] = useState(initialPrice);
+  const [todayLow, setTodayLow] = useState(initialPrice);
+
   useEffect(() => {
     // Fetch company data from an API (dummy URL used for demonstration)
     fetch('https://api.example.com/company')
@@ -84,12 +88,22 @@ function Invest1() {
   const updateChart = () => {
     setCurrentPrice(prevPrice => {
       const newPrice = prevPrice + getRandomStockPriceChange();
-      
+
+      // Update today's high and low
+      if (newPrice > todayHigh) {
+        setTodayHigh(newPrice);
+      }
+      if (newPrice < todayLow) {
+        setTodayLow(newPrice);
+      }
+
       if (currentIndex >= maxDataPoints) {
+        // Remove the oldest data point (first in the array)
         stockChart.data.datasets[0].data.shift();
         stockChart.data.labels.shift();
       }
 
+      // Add new data point at the end of the array
       stockChart.data.datasets[0].data.push(newPrice);
       stockChart.data.labels.push('');
 
@@ -192,7 +206,6 @@ function Invest1() {
       <div className="stock-graph-display-placeholder">
         <canvas id="stockChart"></canvas>
       </div>
-
       <div className="content-wrapper">
         <div className="section current-price-section">
           <h2>Current Price</h2>
@@ -200,17 +213,17 @@ function Invest1() {
             <span className="current-price-value">${currentPrice.toFixed(2)}</span>
           </div>
           <div className="section holding-quantity-section">
-          <h2>Quantity</h2>
-          <div className="holding-quantity-box">
-            <input
-              type="number"
-              className="quantity-input"
-              value={holdingQuantity}
-              onChange={handleQuantityChange}
-              placeholder="Enter quantity"
-            />
+            <h2>Quantity</h2>
+            <div className="holding-quantity-box">
+              <input
+                type="number"
+                className="quantity-input"
+                value={holdingQuantity}
+                onChange={handleQuantityChange}
+                placeholder="Enter quantity"
+              />
+            </div>
           </div>
-        </div>
         </div>
 
         <div className="section new-stock-graph-display-placeholder">
@@ -218,11 +231,11 @@ function Invest1() {
           <div className="new-stock-graph-data">
             <div className="today-high">
               <span>Today's High:</span>
-              <span className="data-box">N/A</span>
+              <span className="data-box">${todayHigh.toFixed(2)}</span>
             </div>
             <div className="today-low">
               <span>Today's Low:</span>
-              <span className="data-box">N/A</span>
+              <span className="data-box">${todayLow.toFixed(2)}</span>
             </div>
           </div>
         </div>
@@ -233,10 +246,6 @@ function Invest1() {
             <div className="fundamentals-grid">
               <div className="fundamental-item">
                 <span>Mkt Cap:</span>
-                <span className="data-box">N/A</span>
-              </div>
-              <div className="fundamental-item">
-                <span>PE Ratio:</span>
                 <span className="data-box">N/A</span>
               </div>
               <div className="fundamental-item">
@@ -252,7 +261,8 @@ function Invest1() {
                 <span className="data-box">N/A</span>
               </div>
               <div className="fundamental-item">
-                <span>ROE:</span>
+               
+              <span>ROE:</span>
                 <span className="data-box">N/A</span>
               </div>
               <div className="fundamental-item">
