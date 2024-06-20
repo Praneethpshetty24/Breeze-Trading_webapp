@@ -210,19 +210,20 @@ function Invest1() {
         <div className="section current-price-section">
           <h2>Current Price</h2>
           <div className="current-price-box">
-            <span className="current-price-value">${currentPrice.toFixed(2)}</span>
+            <span className="current-price-value">₹{currentPrice.toFixed(2)}</span>
           </div>
           <div className="section holding-quantity-section">
             <h2>Quantity</h2>
             <div className="holding-quantity-box">
-              <input
-                type="number"
-                className="quantity-input"
-                value={holdingQuantity}
-                onChange={handleQuantityChange}
-                placeholder="Enter quantity"
-              />
-            </div>
+                <input  type="text"
+                        className="quantity-input"
+                        value={holdingQuantity}
+                        onChange={handleQuantityChange}
+                        placeholder="Enter quantity"
+                      />
+                       
+                    </div>
+
           </div>
         </div>
 
@@ -231,11 +232,11 @@ function Invest1() {
           <div className="new-stock-graph-data">
             <div className="today-high">
               <span>Today's High:</span>
-              <span className="data-box">${todayHigh.toFixed(2)}</span>
+              <span className="data-box">₹{todayHigh.toFixed(2)}</span>
             </div>
             <div className="today-low">
               <span>Today's Low:</span>
-              <span className="data-box">${todayLow.toFixed(2)}</span>
+              <span className="data-box">₹{todayLow.toFixed(2)}</span>
             </div>
           </div>
         </div>

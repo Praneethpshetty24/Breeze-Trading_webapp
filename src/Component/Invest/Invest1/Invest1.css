@@ -317,8 +317,15 @@
   color: green;
 }
 
+.about-company-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 2px solid green;
+  padding: 10px;
+  margin-bottom: 10px;
+}
 
-.current-price-section,
 .fundamentals-section,
 .about-company-section {
   display: flex;
@@ -329,7 +336,28 @@
   margin-bottom: 10px;
 }
 
+.holding-quantity-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: lightgray;
+  padding: 5px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 130px; /* Adjust max-width to decrease the size of the box */
+}
 
+.quantity-input {
+  font-size: 24px;
+  font-weight: bold;
+  border: none;
+  background-color: transparent; 
+  text-align: center;
+  outline: none; 
+  width: 100%;
+}
 
-
+.quantity-input::placeholder {
+  color: #999;
+}
 
