@@ -174,9 +174,7 @@ function Invest1() {
           <div className="current-price-box">
             <span className="current-price-value">${currentPrice.toFixed(2)}</span>
           </div>
-        </div>
-
-        <div className="section holding-quantity-section">
+          <div className="section holding-quantity-section">
           <h2>Quantity</h2>
           <div className="holding-quantity-box">
             <input
@@ -188,6 +186,9 @@ function Invest1() {
             />
           </div>
         </div>
+        </div>
+
+        
 
         <div className="section new-stock-graph-display-placeholder">
           <h2>Stock Graph Display Placeholder (New)</h2>
