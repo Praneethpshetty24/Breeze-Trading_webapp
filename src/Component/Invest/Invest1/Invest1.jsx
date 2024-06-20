@@ -261,6 +261,7 @@ function Invest1() {
           </div>
         </div>
       </div>
+      
       {showWatchlist && (
         <div className={`watchlist-box ${showWatchlist ? 'visible' : ''}`}>
           <div className="watchlist-header">Watchlist</div>
@@ -270,6 +271,33 @@ function Invest1() {
                 {item}
               </div>
             ))}
+          </div>
+        </div>
+      )}
+
+      {showChatBox && (
+        <div className="chat-box">
+          <div className="chat-header">AI Chat</div>
+          <div className="chat-messages">
+            {chatMessages.map((msg, index) => (
+              <div
+                key={index}
+                className={`chat-message ${msg.sender === 'user' ? 'user' : 'bot'}`}
+              >
+                {msg.text}
+              </div>
+            ))}
+          </div>
+          <div className="chat-input">
+            <input
+              type="text"
+              placeholder="Type your message..."
+              value={message}
+              onChange={handleMessageChange}
+            />
+            <button className="send-button" onClick={sendMessage}>
+              Send
+            </button>
           </div>
         </div>
       )}
