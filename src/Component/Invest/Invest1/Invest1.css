@@ -3,7 +3,7 @@
 /* General styles */
 .invest1-container {
   max-width: 600px;
-  margin: 650px auto 10px; /* Adjusted margin-top to bring content down */
+  margin: 690px auto 10px; /* Adjusted margin-top to bring content down */
   padding: 10px;
   position: relative;
   overflow: hidden;
@@ -81,7 +81,7 @@
   gap: 10px;
   border: 2px solid green;
   padding: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 10px; /* Adjust margin-bottom for spacing between sections */
 }
 
 .current-price-section h2,
@@ -284,18 +284,23 @@
   border-bottom: none;
 }
 
-/* Stock graph placeholder styles */
+/* High low*/
 .stock-graph-display-placeholder {
   border: 2px solid green;
   padding: 10px;
   margin-top: 10px;
+  margin-bottom: 20px; 
 }
 
 .new-stock-graph-display-placeholder {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   border: 2px solid green;
   padding: 10px;
-  margin-top: 10px;
+  margin-bottom: 10px;
 }
+
 
 .new-stock-graph-data {
   display: flex;
@@ -311,3 +316,20 @@
   border: 1px solid green;
   color: green;
 }
+
+
+.current-price-section,
+.fundamentals-section,
+.about-company-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 2px solid green;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+
+
+
+
