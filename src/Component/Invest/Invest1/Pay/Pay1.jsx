@@ -13,6 +13,26 @@ function Pay1() {
   const [timer, setTimer] = useState(30);
   const [showConfirmation, setShowConfirmation] = useState(false);
 
+  // State for current price (Assume initial price is 50)
+  const initialPrice = 50;
+  const [currentPrice, setCurrentPrice] = useState(initialPrice);
+  const [fixedPrice, setFixedPrice] = useState(null);
+
+  // Simulate fetching and updating stock price
+  useEffect(() => {
+    const getRandomStockPriceChange = () => (Math.random() - 0.5) * 2;
+
+    const updatePrice = () => {
+      setCurrentPrice(prevPrice => {
+        const newPrice = prevPrice + getRandomStockPriceChange();
+        return newPrice;
+      });
+    };
+
+    const intervalId = setInterval(updatePrice, 2000);
+    return () => clearInterval(intervalId);
+  }, []);
+
   useEffect(() => {
     let interval;
     if (verificationCode) {
@@ -60,6 +80,7 @@ function Pay1() {
   };
 
   const handleBuy = () => {
+    setFixedPrice(currentPrice);
     setShowConfirmation(true);
   };
 
@@ -96,6 +117,11 @@ function Pay1() {
               <button onClick={incrementQuantity}>+</button>
             </div>
           </div>
+          <div className="vertical-line"></div>
+          <div className="detail-item">
+            <span>Current Price:</span>
+            <div className="price-value">₹{currentPrice.toFixed(2)}</div>
+          </div>
         </div>
         <div className="action-section">
           <div className="action-buttons">
@@ -131,6 +157,9 @@ function Pay1() {
               </div>
               <div className="confirmation-detail">
                 <span>Exchange:</span> {exchange}
+              </div>
+              <div className="confirmation-detail">
+                <span>Fixed Price:</span> ₹{fixedPrice?.toFixed(2)}
               </div>
               <button className="close-button" onClick={handleCloseConfirmation}>
                 x
