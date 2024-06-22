@@ -162,3 +162,14 @@
   margin-top: 20px; /* Adjust top margin as needed */
   margin-left: 50px; /* Adjust left margin to move buttons to the right */
 }
+.see-more-button {
+  background-color: green; /* Green color */
+  color: #fff;
+}
+.see-more-button {
+  margin: 5px 0;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}

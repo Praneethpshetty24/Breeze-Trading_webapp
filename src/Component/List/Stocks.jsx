@@ -72,6 +72,10 @@ function Stocks() {
     }
   };
 
+  const handleSeeMoreClick = () => {
+    navigate('/more');
+  };
+
   return (
     <div className="stocks-container">
       <div className="boxes-wrapper">
@@ -122,6 +126,9 @@ function Stocks() {
         </button>
         <button className="portfolio-button" onClick={togglePortfolio}>
           Portfolio
+        </button>
+        <button className="see-more-button" onClick={handleSeeMoreClick}>
+          See More &lt;&lt;
         </button>
         <button className="ai-chat-button" onClick={toggleSidebar}>
           AI Chat
