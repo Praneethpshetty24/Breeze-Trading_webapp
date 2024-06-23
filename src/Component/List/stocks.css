@@ -1,6 +1,7 @@
 .stocks-container {
   padding: 20px;
-  position: relative; /* Ensure relative positioning for sidebar */
+  position: relative; 
+/* Ensure relative positioning for sidebar */
 }
 
 .boxes-wrapper {

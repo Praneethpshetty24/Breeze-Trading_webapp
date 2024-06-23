@@ -56,15 +56,17 @@ const stockData = [
 
 function More() {
   return (
-    <div className="stocks-container">
-      {stockData.map((stock, index) => (
-        <div key={index} className="stock-box">
-          <img src={stock.image} alt={stock.name} className="stock-image" />
-          <div className="stock-name">{stock.name}</div>
-          <div className="stock-price">{stock.price}</div>
-        </div>
-      ))}
-      <button className="back-button" onClick={() => window.history.back()}>Back</button>
+    <div className="more-container">
+      <div className="stocks-container">
+        {stockData.map((stock, index) => (
+          <div key={index} className="stock-box">
+            <img src={stock.image} alt={stock.name} className="stock-image" />
+            <div className="stock-name">{stock.name}</div>
+            <div className="stock-price">{stock.price}</div>
+          </div>
+        ))}
+      </div>
+      <button className="more-back-button" onClick={() => window.history.back()}>Back</button>
     </div>
   );
 }
