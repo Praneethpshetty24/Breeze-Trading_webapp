@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './more.css';
 
 const stockData = [
@@ -55,6 +55,16 @@ const stockData = [
 ];
 
 function More() {
+  const [selectedStock, setSelectedStock] = useState(null);
+
+  const handleStockClick = (stock) => {
+    setSelectedStock(stock);
+  };
+
+  const closePopup = () => {
+    setSelectedStock(null);
+  };
+
   return (
     <div className="more-container">
       <div className="stocks-container">
@@ -63,9 +73,28 @@ function More() {
             <img src={stock.image} alt={stock.name} className="stock-image" />
             <div className="stock-name">{stock.name}</div>
             <div className="stock-price">{stock.price}</div>
+            <button className="details-button" onClick={() => handleStockClick(stock)}>
+              Details
+            </button>
           </div>
         ))}
       </div>
+      {selectedStock && (
+        <div className="popup-overlay">
+          <div className="popup">
+            <div className="popup-content">
+              <button className="close-button" onClick={closePopup}>&times;</button>
+              <h2>{selectedStock.name} Details</h2>
+              <p>Mkt Cap: N/A</p>
+              <p>PB Ratio: N/A</p>
+              <p>Industry PE: N/A</p>
+              <p>Debt to Equity: N/A</p>
+              <p>ROE: N/A</p>
+              <p>Div Yield: N/A</p>
+            </div>
+          </div>
+        </div>
+      )}
       <button className="more-back-button" onClick={() => window.history.back()}>Back</button>
     </div>
   );
