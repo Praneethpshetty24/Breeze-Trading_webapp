@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './pay1.css';
 
 function Pay1() {
   const location = useLocation();
+  const navigate = useNavigate();
   const stockName = location.state?.stockName || 'Stock Name';
   const [quantity, setQuantity] = useState(1);
   const [exchange, setExchange] = useState('NSE');
@@ -87,6 +88,7 @@ function Pay1() {
   const handlePayNow = () => {
     alert('Payment Successful!');
     setShowConfirmation(false);
+    navigate('/invest1'); // Redirect to Invest1 component
   };
 
   const handleCloseConfirmation = () => {

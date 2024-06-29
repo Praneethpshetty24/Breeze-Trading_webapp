@@ -21,8 +21,8 @@ import Pay3 from './Component/Invest/Invest3/Pay3/Pay3';
 import Analyse from './Component/Invest/Invest1/Analyse/Analyse1';
 import Analyse2 from './Component/Invest/Invest2/Analyse2/Analyse2';
 import Analyse3 from './Component/Invest/Invest3/Analyse3/Analyse3';
-import More from './Component/More/More'; 
-import Real from './Component/Real/Real'; // Import the Real component
+import More from './Component/More/More';
+import Real from './Component/Real/Real';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -45,11 +45,11 @@ root.render(
         <Route path="/pay1" element={<Pay1 />} />
         <Route path="/analyse" element={<Analyse />} />
         <Route path="/pay2" element={<Pay2 />} />
-        <Route path="/analyse2" element={<Analyse2/>} />
+        <Route path="/analyse2" element={<Analyse2 />} />
         <Route path="/pay3" element={<Pay3 />} />
-        <Route path="/analyse3" element={<Analyse3/>} />
+        <Route path="/analyse3" element={<Analyse3 />} />
         <Route path="/more" element={<More />} />
-        <Route path="/real" element={<Real />} /> {/* Add the route for Real */}
+        <Route path="/real" element={<Real />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
