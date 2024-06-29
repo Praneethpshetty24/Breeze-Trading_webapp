@@ -98,14 +98,14 @@ function Invest1() {
       }
 
       if (currentIndex >= maxDataPoints) {
-        // Remove the oldest data point (first in the array)
-        stockChart.data.datasets[0].data.shift();
-        stockChart.data.labels.shift();
+        // Remove the oldest data point (last in the array)
+        stockChart.data.datasets[0].data.pop();
+        stockChart.data.labels.pop();
       }
 
-      // Add new data point at the end of the array
-      stockChart.data.datasets[0].data.push(newPrice);
-      stockChart.data.labels.push('');
+      // Add new data point at the beginning of the array
+      stockChart.data.datasets[0].data.unshift(newPrice);
+      stockChart.data.labels.unshift('');
 
       stockChart.update();
       setCurrentIndex(prevIndex => prevIndex + 1);
@@ -142,6 +142,7 @@ function Invest1() {
     // Clear interval on component unmount
     return () => clearInterval(intervalId);
   }, [stockChart]);
+
 
   const toggleChatBox = () => {
     setShowChatBox(!showChatBox);
