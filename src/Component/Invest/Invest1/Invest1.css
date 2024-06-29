@@ -7,6 +7,7 @@
   padding: 10px;
   position: relative;
   overflow: hidden;
+  border: 2px solid green; /* Added border to the whole container */
 }
 
 .header {
@@ -284,7 +285,7 @@
   border-bottom: none;
 }
 
-/* High low*/
+/* High low */
 .stock-graph-display-placeholder {
   border: 2px solid green;
   padding: 10px;
@@ -300,7 +301,6 @@
   padding: 10px;
   margin-bottom: 10px;
 }
-
 
 .new-stock-graph-data {
   display: flex;
@@ -360,4 +360,3 @@
 .quantity-input::placeholder {
   color: #999;
 }
-
