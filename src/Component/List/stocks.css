@@ -1,14 +1,20 @@
 .stocks-container {
   padding: 20px;
-  position: relative; 
-/* Ensure relative positioning for sidebar */
+  position: relative;
+  margin: 0 auto; /* Center the container */
+  max-width: 1200px; /* Set a max-width for the container */
+  border-radius: 8px; /* Rounded corners */
 }
 
 .boxes-wrapper {
   border: 4px solid green; /* Increased border width */
   padding: 20px;
-  margin-left: 50px; /* Adjusted margin to leave space for back button */
+  margin: 0 auto; /* Center align the boxes-wrapper */
   text-align: center; /* Center align content */
+  border-radius: 8px; /* Rounded corners */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center align the content horizontally */
 }
 
 .box-row {
@@ -32,12 +38,14 @@
   width: calc(31% - 10px); /* Adjusted width */
   box-sizing: border-box;
   background-color: transparent; /* Transparent background */
+  border-radius: 8px; /* Rounded corners */
 }
 
 .invest-button {
   align-self: flex-end;
   padding: 5px 10px; /* Smaller padding */
   font-size: 14px; /* Smaller font size */
+  border-radius: 50px; /* Rounded corners */
 }
 
 .invest-button:hover {
@@ -46,7 +54,12 @@
 
 .back-button,
 .portfolio-button,
-.ai-chat-button {
+.ai-chat-button,
+.analyse-button,
+.buy-now-button,
+.close-button,
+.send-button,
+.see-more-button {
   background-color: green;
   color: white;
   border: none;
@@ -56,11 +69,17 @@
   margin: 0 10px; /* Adjust horizontal margin for spacing */
   text-align: center; /* Center align text */
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Smooth transitions */
+  border-radius: 50px; /* Rounded corners */
 }
 
 .back-button:hover,
 .portfolio-button:hover,
-.ai-chat-button:hover {
+.ai-chat-button:hover,
+.analyse-button:hover,
+.buy-now-button:hover,
+.close-button:hover,
+.send-button:hover,
+.see-more-button:hover {
   background-color: darkgreen;
 }
 
@@ -74,6 +93,7 @@
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Shadow for sidebar */
   transition: transform 0.3s ease-in-out; /* Smooth transition */
   z-index: 1000; /* Ensure sidebar is above other content */
+  border-radius: 8px; /* Rounded corners */
 }
 
 .right-sidebar {
@@ -92,48 +112,6 @@
   transform: translateX(300px); /* Slide in when .open class is added */
 }
 
-.close-button {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background-color: red; /* Close button color */
-  color: white;
-  border: none;
-  padding: 5px;
-  cursor: pointer;
-}
-
-/* Additional styles for portfolio and AI chat buttons */
-.portfolio-button {
-  background-color: green;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 16px;
-  text-align: center; /* Center align text */
-}
-
-.portfolio-button:hover {
-  background-color: darkgreen;
-}
-
-.ai-chat-button {
-  background-color: green;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 16px;
-  text-align: center; /* Center align text */
-  border-radius: 50px; /* Rounded corners */
-}
-
-.ai-chat-button:hover {
-  background-color: darkgreen;
-}
-
-
 /* Additional styles for sidebar content */
 .sidebar-content {
   padding: 20px;
@@ -145,6 +123,7 @@
   padding: 10px;
   margin-bottom: 20px;
   background-color: white;
+  border-radius: 8px; /* Rounded corners */
 }
 
 .stocks-list {
@@ -154,6 +133,7 @@
 .stock-item {
   padding: 5px;
   border-bottom: 1px solid #ccc;
+  border-radius: 8px; /* Rounded corners */
 }
 
 .button-wrapper {
@@ -161,16 +141,4 @@
   justify-content: center; /* Align buttons horizontally centered */
   align-items: center; /* Align buttons vertically centered */
   margin-top: 20px; /* Adjust top margin as needed */
-  margin-left: 50px; /* Adjust left margin to move buttons to the right */
-}
-.see-more-button {
-  background-color: green; /* Green color */
-  color: #fff;
-}
-.see-more-button {
-  margin: 5px 0;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
 }

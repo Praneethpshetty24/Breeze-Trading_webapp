@@ -15,7 +15,7 @@ function Stocks() {
   });
 
   const handleBackClick = () => {
-    navigate(-1); // Navigate to the previous page
+    navigate('/Home'); // Navigate to the previous page
   };
 
   const toggleSidebar = () => {
