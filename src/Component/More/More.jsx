@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import './more.css';
-import image1 from './img/one.jpeg';
-import image2 from './img/two.jpeg';
-import image3 from './img/three.jpeg';
-import image4 from './img/four.jpeg';
-import image5 from './img/five.jpeg';
-import image6 from './img/six.jpeg';
+import image1 from './img/1.jpeg';
+import image2 from './img/2.jpeg';
+import image3 from './img/3.jpeg';
+import image4 from './img/4.jpeg';
+import image5 from './img/5.jpeg';
+import image6 from './img/6.jpeg';
 
 const stockData = [
   { name: 'Stock 1', price: '₹100', image: image1 },
